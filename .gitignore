@@ -2,3 +2,4 @@
 .env
 posts.db
 blog.db
+__pycache__/forms.cpython-39.pyc
