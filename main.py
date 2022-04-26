@@ -34,16 +34,6 @@ class BlogPost(db.Model):
 # Creates database if there is none.
 db.create_all()
 
-# ##WTForm
-# class CreatePostForm(FlaskForm):
-#     title = StringField("Blog Post Title", validators=[DataRequired()])
-#     subtitle = StringField("Subtitle", validators=[DataRequired()])
-#     author = StringField("Your Name", validators=[DataRequired()])
-#     img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
-#     body = CKEditorField("Blog Content", validators=[DataRequired()])
-#     submit = SubmitField("Submit Post")
-
-
 @app.route('/')
 def get_all_posts():
     posts = BlogPost.query.all()
