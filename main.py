@@ -5,6 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, URL
 from flask_ckeditor import CKEditor, CKEditorField
+from forms import CreatePostForm
 from datetime import date
 from dotenv import load_dotenv
 import os
@@ -15,7 +16,7 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -29,16 +30,18 @@ class BlogPost(db.Model):
     body = db.Column(db.Text, nullable=False)
     author = db.Column(db.String(250), nullable=False)
     img_url = db.Column(db.String(250), nullable=False)
-# db.create_all()
 
-##WTForm
-class CreatePostForm(FlaskForm):
-    title = StringField("Blog Post Title", validators=[DataRequired()])
-    subtitle = StringField("Subtitle", validators=[DataRequired()])
-    author = StringField("Your Name", validators=[DataRequired()])
-    img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
-    body = CKEditorField("Blog Content", validators=[DataRequired()])
-    submit = SubmitField("Submit Post")
+# Creates database if there is none.
+db.create_all()
+
+# ##WTForm
+# class CreatePostForm(FlaskForm):
+#     title = StringField("Blog Post Title", validators=[DataRequired()])
+#     subtitle = StringField("Subtitle", validators=[DataRequired()])
+#     author = StringField("Your Name", validators=[DataRequired()])
+#     img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
+#     body = CKEditorField("Blog Content", validators=[DataRequired()])
+#     submit = SubmitField("Submit Post")
 
 
 @app.route('/')
