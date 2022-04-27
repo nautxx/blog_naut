@@ -40,6 +40,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(100))
     posts = relationship("BlogPost", back_populates="author")
 
+
 class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     #Create Foreign Key, "users.id" the users refers to the tablename of User.
@@ -58,6 +59,12 @@ class Comment(db.Model):
     __tablename__ = "comments"
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.Text, nullable=False)
+    
+    #*******Add child relationship*******#
+    #"users.id" The users refers to the tablename of the Users class.
+    #"comments" refers to the comments property in the User class.
+    author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    comment_author = relationship("User", back_populates="comments")
 
 
 # Creates database if there is none.
