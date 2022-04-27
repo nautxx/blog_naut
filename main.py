@@ -15,12 +15,18 @@ from dotenv import load_dotenv
 import os
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 
+
+#Initialize
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
+gravatar = Gravatar(
+    app, size=100, rating='g', default='retro', force_default=False, 
+    force_lower=False, use_ssl=False, base_url=None
+)
 
-##CONNECT TO DB
+#Connect to database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -32,7 +38,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-##Configure table
+#Configure table
 class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
@@ -70,7 +76,7 @@ class Comment(db.Model):
     text = db.Column(db.Text, nullable=False)
 
 
-# Creates database if there is none.
+#Creates database if there is none.
 db.create_all()
 
 #Create admin-only decorator
