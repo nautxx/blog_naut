@@ -54,6 +54,15 @@ class BlogPost(db.Model):
     img_url = db.Column(db.String(250), nullable=False)
 
 
+class Comment(db.Model):
+    __tablename__ = "comments"
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.Text, nullable=False)
+
+
+# Creates database if there is none.
+db.create_all()
+
 #Create admin-only decorator
 def admin_only(f):
     @wraps(f)
@@ -65,8 +74,6 @@ def admin_only(f):
         return f(*args, **kwargs)        
     return decorated_function
 
-# Creates database if there is none.
-db.create_all()
 
 @app.route('/')
 def get_all_posts():
