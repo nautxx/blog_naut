@@ -9,7 +9,7 @@ from wtforms.validators import DataRequired, URL
 from sqlalchemy.orm import relationship
 from functools import wraps
 from flask_gravatar import Gravatar
-from datetime import date
+from datetime import date, datetime as dt
 from dotenv import load_dotenv
 import os
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
@@ -58,11 +58,8 @@ class User(UserMixin, db.Model):
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
     id = db.Column(db.Integer, primary_key=True)
-    #Create Foreign Key, "users.id" the users refers to the tablename of User.
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    #Create reference to the User object, the "posts" refers to the posts protperty in the User class.
     author = relationship("User", back_populates="posts")
-
     title = db.Column(db.String(250), unique=True, nullable=False)
     subtitle = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(250), nullable=False)
@@ -80,6 +77,7 @@ class Comment(db.Model):
     parent_post = relationship("BlogPost", back_populates="comments")
     comment_author = relationship("User", back_populates="comments")
     text = db.Column(db.Text, nullable=False)
+    date = db.Column(db.String(250), nullable=False)
 
 
 #Creates database if there is none.
@@ -174,6 +172,7 @@ def show_post(post_id):
             return redirect(url_for("login"))
 
         new_comment = Comment(
+            date=dt.now().strftime("%B %d, %Y %H:%M:%S"),
             text=form.comment_text.data,
             comment_author=current_user,
             parent_post=requested_post
