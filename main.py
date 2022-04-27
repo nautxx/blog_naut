@@ -107,16 +107,17 @@ def get_all_posts():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        
+
         #If user's email already exists
         if User.query.filter_by(email=form.email.data).first():
-            #Send flash messsage
+            print(User.query.filter_by(email=form.email.data).first())
+            #User already exists so send flash messsage
             flash("You've already signed up with that email, log in instead!")
             #Redirect to /login route.
             return redirect(url_for('login'))
 
         hash_and_salted_password = generate_password_hash(
-            form.password.data,
+            password=form.password.data,
             method='pbkdf2:sha256',
             salt_length=8
         )
@@ -127,10 +128,11 @@ def register():
         )
         db.session.add(new_user)
         db.session.commit()
+        #This line will authenticate the user with Flask-Login
         login_user(new_user)
         return redirect(url_for("get_all_posts"))
 
-    return render_template("register.html", form=form)
+    return render_template("register.html", form=form, current_user=current_user)
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -141,7 +143,7 @@ def login():
         password = form.password.data
 
         user = User.query.filter_by(email=email).first()
-        # Email doesn't exist
+        # Email doesn't exist or password incorrect.
         if not user:
             flash("That email does not exist, please try again.")
             return redirect(url_for('login'))
@@ -152,7 +154,8 @@ def login():
         else:
             login_user(user)
             return redirect(url_for('get_all_posts'))
-    return render_template("login.html", form=form)
+          
+    return render_template("login.html", form=form, current_user=current_user)
 
 
 @app.route('/logout')
@@ -165,7 +168,6 @@ def logout():
 def show_post(post_id):
     form = CommentForm()
     requested_post = BlogPost.query.get(post_id)
-
     if form.validate_on_submit():
         if not current_user.is_authenticated:
             flash("You need to login or register to comment.")
@@ -184,12 +186,12 @@ def show_post(post_id):
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", current_user=current_user)
 
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", current_user=current_user)
 
 
 @app.route("/new-post", methods=["GET", "POST"])
@@ -208,7 +210,6 @@ def add_new_post():
         db.session.add(new_post)
         db.session.commit()
         return redirect(url_for("get_all_posts"))
-
     return render_template("make-post.html", form=form, current_user=current_user)
 
 
