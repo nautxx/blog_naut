@@ -3,9 +3,10 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from flask_wtf import FlaskForm
+from flask_ckeditor import CKEditor, CKEditorField
+from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, URL
-from flask_ckeditor import CKEditor, CKEditorField
 from forms import CreatePostForm
 from datetime import date
 from dotenv import load_dotenv
@@ -54,10 +55,18 @@ def get_all_posts():
     posts = BlogPost.query.all()
     return render_template("index.html", all_posts=posts)
 
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
+        
+        #If user's email already exists
+        if User.query.filter_by(email=form.email.data).first():
+            #Send flash messsage
+            flash("You've already signed up with that email, log in instead!")
+            #Redirect to /login route.
+            return redirect(url_for('login'))
 
         hash_and_salted_password = generate_password_hash(
             form.password.data,
@@ -71,10 +80,11 @@ def register():
         )
         db.session.add(new_user)
         db.session.commit()
-        
+        login_user(new_user)
         return redirect(url_for("get_all_posts"))
 
     return render_template("register.html", form=form)
+
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
