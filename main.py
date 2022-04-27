@@ -7,7 +7,7 @@ from flask_ckeditor import CKEditor, CKEditorField
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, URL
-from forms import CreatePostForm
+from forms import CreatePostForm, RegisterForm, LoginForm
 from datetime import date
 from dotenv import load_dotenv
 import os
@@ -112,7 +112,7 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('get_all_posts'))
-    
+
 
 @app.route("/post/<int:post_id>")
 def show_post(post_id):
