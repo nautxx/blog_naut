@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, URL
 from functools import wraps
-from forms import CreatePostForm, RegisterForm, LoginForm
+from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from datetime import date
 from dotenv import load_dotenv
 import os
