@@ -1,8 +1,7 @@
-from flask import Flask, render_template, redirect, url_for, abort
+from flask import Flask, render_template, redirect, url_for, abort, flash
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
-from flask_wtf import FlaskForm
 from flask_ckeditor import CKEditor, CKEditorField
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, SubmitField
@@ -22,8 +21,14 @@ app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(
-    app, size=100, rating='g', default='retro', force_default=False, 
-    force_lower=False, use_ssl=False, base_url=None
+    app, 
+    size=100, 
+    rating='g', 
+    default='retro', 
+    force_default=False, 
+    force_lower=False, 
+    use_ssl=False, 
+    base_url=None
 )
 
 #Connect to database
@@ -46,6 +51,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(100))
     posts = relationship("BlogPost", back_populates="author")
+    #Add parent relationship
     comments = relationship("Comment", back_populates="comment_author")
 
 
@@ -68,11 +74,11 @@ class BlogPost(db.Model):
 class Comment(db.Model):
     __tablename__ = "comments"
     id = db.Column(db.Integer, primary_key=True)
-    author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    comment_author = relationship("User", back_populates="comments")
-    #Child Relationship
     post_id = db.Column(db.Integer, db.ForeignKey("blog_posts.id"))
+    #Add child relationship
+    author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     parent_post = relationship("BlogPost", back_populates="comments")
+    comment_author = relationship("User", back_populates="comments")
     text = db.Column(db.Text, nullable=False)
 
 
@@ -94,7 +100,7 @@ def admin_only(f):
 @app.route('/')
 def get_all_posts():
     posts = BlogPost.query.all()
-    return render_template("index.html", all_posts=posts)
+    return render_template("index.html", all_posts=posts, current_user=current_user)
 
 
 @app.route('/register', methods=["GET", "POST"])
