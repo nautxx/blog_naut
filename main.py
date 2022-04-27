@@ -9,10 +9,11 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, URL
 from sqlalchemy.orm import relationship
 from functools import wraps
-from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
+from flask_gravatar import Gravatar
 from datetime import date
 from dotenv import load_dotenv
 import os
+from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
