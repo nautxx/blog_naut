@@ -51,10 +51,11 @@
                             <div class="commenterImage">
                                 <img src="{{ comment.comment_author.email | gravatar }}"/>
                             </div>
+                            <div class="commentorInfo">
+                                <span class="meta">{{comment.comment_author.name}}</span><br>
+                                <span>{{comment.date}}</span></div>
                             <div class="commentText">
                                 {{comment.text|safe}}
-                                <span class="date sub-text">{{comment.comment_author.name}} {{comment.date}}</span>
-
                             </div>
                         </li>
                     </ul>
