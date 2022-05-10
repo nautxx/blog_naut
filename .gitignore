@@ -172,3 +172,4 @@ cython_debug/
 
 blog.db
 
+static/fonts/.DS_Store
