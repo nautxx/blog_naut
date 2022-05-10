@@ -97,12 +97,12 @@ def admin_only(f):
 
 @app.route('/')
 def portfolio():
-    return render_template("index_new.html")
+    return render_template("index.html")
 
 @app.route('/wip')
 def get_all_posts():
     posts = BlogPost.query.all()
-    return render_template("index.html", all_posts=posts, current_user=current_user)
+    return render_template("blog.html", all_posts=posts, current_user=current_user)
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
