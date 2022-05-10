@@ -1,2 +1,2 @@
 # blog_naut
- Naut's documentation of life.
+ naut's documentation of life.
