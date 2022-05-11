@@ -16,9 +16,7 @@
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <!-- <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="fonts/bogart.ttf" rel="preload" type="font/ttf" as="font" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com" rel="preconnect"> 
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -32,13 +30,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
 
-
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-md navbar-light fixed-top" id="mainNav">
+  <!-- <nav class="navbar navbar-expand-md navbar-light fixed-top" id="mainNav"> -->
+  <header class ="s-nav">
+    <nav class="c-nav navbar-expand-md">
     <div class="container">
       <!-- <a class="navbar-brand" href="{{url_for('get_all_posts')}}">naut's Blog</a> -->
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +45,8 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <!-- <ul class="navbar-nav ml-auto"> -->
+        <ul class="c-nav-list navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('portfolio') }}">Work</a>
           </li>
@@ -75,3 +75,4 @@
       </div>
     </div>
   </nav>
+</header>
