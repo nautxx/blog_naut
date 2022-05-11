@@ -46,6 +46,15 @@ a, button, h6, input, li, p {
     max-width: 90%;
 }
 
+.c-nav-list__link {
+    padding: .5em 1.5em;
+    display: block;
+    color: #232320;
+    font-size: .9em;
+    transition: color .2s linear;
+    position: relative;
+}
+
 .c-hero__title {
     color: #232320;
     font-family: Bogart, 'Helvetica Neue', Helvetica, Arial, sans-serif;
