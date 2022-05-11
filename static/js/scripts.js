@@ -4,7 +4,7 @@ const lazyLoad = () => {
 
 const blobs = () => {
   anime({
-    targets: '.c-wip__header',
+    targets: ['.c-hero__header', '.c-wip__header'],
     opacity: 1,
     delay: 300,
     translateY: [-90,0],
