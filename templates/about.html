@@ -1,30 +1,46 @@
 {% include "header.html" %}
-
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/about-bg.jpg')}})">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1 class="c-wip__title">About Me</h1>
-            <p class="c-wip__sub">I'm Jason, an engineer in Santa Monica, California.</p>
-          </div>
+<!-- Page Header -->
+<section>
+  <header>
+    <div class="c-info__hero">
+      <div class="c-info__hero-col slide" style="opacity: 1; transform: translateY(0px);">
+        <div class="c-info__avatar">
+          <picture>
+            <source type="image/png" role="presentation" srcset="static/img/naut_1x.png 1x, static/img/naut_2x.png 2x">
+            <img class="" alt="Photo of naut" data-ll-status="loaded" src="static/img/naut_2x.png">
+          </picture>
         </div>
       </div>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <p>I've spent the passed 12+ years in the construction industry, working on big structural projects as a quality engineer, but I've always tinkered with code in my spare time. </p>
+      <div class="c-info__hero-col" style="opacity: 1; transform: translateY(0px);">
+        <h1>I'm Jason, an Engineer in stunning Santa Monica, California.</h1>
+        <p>I've previously spent the passed 12+ years in the construction industry, working on big structural projects as a quality engineer, but I've always innately tinkered with code every chance I got.</p>
         <p>These days my time is spent researching, learning, and coding.</p>
         <p>Out of the office you’ll find me building freestyle drones and mechanical keyboards, drinking coffee, and petting all the good dogs.</p>
       </div>
     </div>
+  </header>
+</section>
+
+<!-- Main Content -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+      </div>
+    </div>
   </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Contact-->
 <section class="page-section" id="contact">
@@ -35,8 +51,6 @@
               <p class="text-muted mb-5">Have a project where you need some help? Send me a message and let's chat.</p>
           </div>
       </div>
-
   </div>
 </section>
-
 {% include "footer.html" %}
