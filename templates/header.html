@@ -40,27 +40,27 @@
       <div class="container-fluid">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('portfolio') }}">Work</a>
+              <a class="c-nav-list__link nav-link" href="{{ url_for('portfolio') }}">Work</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('about') }}">About</a>
+              <a class="c-nav-list__link nav-link" href="{{ url_for('about') }}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('get_all_posts') }}">Wip</a>
+              <a class="c-nav-list__link nav-link" href="{{ url_for('get_all_posts') }}">Wip</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+              <a class="c-nav-list__link nav-link" href="{{ url_for('contact') }}">Contact</a>
             </li>
             {% if not current_user.is_authenticated: %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+              <a class="c-nav-list__link nav-link" href="{{ url_for('login') }}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+              <a class="c-nav-list__link nav-link" href="{{ url_for('register') }}">Register</a>
             </li>
             {% else: %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+              <a class="c-nav-list__link nav-link" href="{{ url_for('logout') }}">Log Out</a>
             </li>
             {% endif %}
           </ul>
