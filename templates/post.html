@@ -9,17 +9,11 @@
 
     <!-- Page Header -->
     <section>
-        <header class="c-wip__header" style="background-image: url('{{post.img_url}}')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <div class="post-heading">
-                            <h1 class="c-wip__title">{{post.title}}</h1>
-                            <p class="c-wip__sub">{{post.subtitle}}</p>
-                            <span class="meta">Posted by {{post.author.name}} on {{post.date}}</span>
-                        </div>
-                    </div>
-                </div>
+        <header class="c-post__header" style="background-image: url('{{post.img_url}}')">
+            <div class="c-post__header-text" style="opacity: 1; transform: translateY(0px);"></div>
+                <h1 class="c-post__title">{{post.title}}</h1>
+                <p class="c-post__sub">{{post.subtitle}}</p>
+                <span>Posted by {{post.author.name}} on {{post.date}}</span>
             </div>
         </header>
     </section>
@@ -67,6 +61,6 @@
             </div>
         </article>
     </section>
-    <hr>
+
     {% include "footer.html" %}
 {% endblock %}
