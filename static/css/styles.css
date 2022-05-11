@@ -1,0 +1,117 @@
+@font-face {
+    font-family: Bogart;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+    src: url(../fonts/bogart.ttf);
+}
+
+body, html {
+    font-family:'Varela Round','Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #fefaf6;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    display:block;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: Bogart, 'Times New Roman', serif;
+    font-weight: 500;
+}
+
+a, button, h6, input, li, p {
+    font-family:'Varela Round','Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.s-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 1040;
+    background: #fefaf6;
+}
+
+.c-nav {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.c-nav-list {
+    margin: 0 auto;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    max-width: 90%;
+}
+
+.c-hero__title {
+    color: #232320;
+    font-family: Bogart, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 3.5em;
+    letter-spacing: -1.5px;
+    line-height: 110%;
+    margin: 0;
+    transition: all .2s ease-in-out;
+    text-align: left;
+}
+
+.c-hero__sub {
+    font-family:'Varela Round','Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #232320;
+    font-size: 1em;
+    line-height: 1.7;
+    margin: 1em 0 0;
+    transition: all .2s ease-in-out;
+    text-align: left;
+}
+
+.c-wip__title {
+    color: #232320;
+    font-family: Bogart, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 3.5em;
+    letter-spacing: -1.5px;
+    line-height: 110%;
+    margin: 0;
+    transition: all .2s ease-in-out;
+    position: relative;
+    z-index: 100;
+}
+
+.c-wip__sub {
+    font-family:'Varela Round','Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #232320;
+    font-size: 1em;
+    line-height: 1.7;
+    margin: 1em 0 0;
+    transition: all .2s ease-in-out;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+}
+
+@media (min-width: 1600px) {
+    .c-hero__title {
+        font-size: 6.5em;
+        letter-spacing: -3px;
+    }
+
+    .c-hero__sub {
+    font-size: 1.3em;
+    max-width: 580px;
+    padding: 0;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 544px) {
+
+}
