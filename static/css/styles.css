@@ -88,6 +88,15 @@ a, button, h6, input, li, p {
     z-index: 100;
 }
 
+.c-wip__header {
+    text-align: center;
+    overflow: hidden;
+    padding: 8em 0 4em;
+    background: linear-gradient(.25deg,#ffeec4 -36.42%,#fefaf6 59.25%);
+    position: relative;
+    opacity: 0;
+}
+
 .c-wip__sub {
     font-family:'Varela Round','Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #232320;
@@ -114,7 +123,9 @@ a, button, h6, input, li, p {
 }
 
 @media (min-width: 992px) {
-
+    .c-wip__header {
+        padding: 14em 0 10em;
+    }
 }
 
 @media (min-width: 768px) {
