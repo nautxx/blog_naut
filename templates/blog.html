@@ -1,50 +1,52 @@
 {% include "header.html" %}
 <!-- Page Header -->
-<div class="c-wip__header" style="opacity: 1; transform: translateY(0px);">
-  <div class="c-wip__header-text js-bounce-in" style="opacity: 1; transform: translateY(0px);">
-    <h1 class="c-wip__title">Work in Progress</h1>
-    <p class="c-wip__sub">A collection of my work in progress, design inspiration, and random musings.</p>
-    <div class="c-wip__blob c-wip__blob--1" style="opacity: 1; transform: translateY(-214.21200055180404px) translateX(107.10600027590202px);"></div>
-    <div class="c-wip__blob c-wip__blob--2" style="opacity: 1; transform: translateY(-217.960298408729px) translateX(108.9801492043645px);"></div>
-    <div class="c-wip__blob c-wip__blob--3" style="opacity: 1; transform: translateY(-218.05408737853787px) translateX(109.02704368926894px);"></div>
-    <div class="c-wip__blob c-wip__blob--4" style="opacity: 1; transform: translateY(-212.9903361162216px) translateX(106.4951680581108px);"></div>
-  </div>
-</div>
+<section>
+  <header class="c-wip__header" style="opacity: 1; transform: translateY(0px);">
+    <div class="c-wip__header-text" style="opacity: 1; transform: translateY(0px);">
+      <h1 class="c-wip__title">Work in Progress</h1>
+      <p class="c-wip__sub">A collection of my work in progress, design inspiration, and random musings.</p>
+      <div class="c-wip__blob c-wip__blob--1" style="opacity: 1; transform: translateY(-101px) translateX(259px);"></div>
+      <div class="c-wip__blob c-wip__blob--2" style="opacity: 1; transform: translateY(-102px) translateX(258px);"></div>
+      <div class="c-wip__blob c-wip__blob--3" style="opacity: 1; transform: translateY(-103px) translateX(257px);"></div>
+      <div class="c-wip__blob c-wip__blob--4" style="opacity: 1; transform: translateY(-104px) translateX(256px);"></div>
+    </div>
+  </header>
+</section>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        {% for post in all_posts %}
-        <div class="post-preview">
-          <a href="{{ url_for('show_post', post_id=post.id) }}">
-            <h2 class="post-title">
-              {{post.title}}
-            </h2>
-            <h3 class="post-subtitle">
-              {{post.subtitle}}
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            {{post.author.name}}
-            on {{post.date}}
-            {% if current_user.id == 1: %}
-            <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
-            {% endif %}
-          </p>
-        </div>
-        {% endfor %}
-
-
-        <!-- New Post -->
-        {% if current_user.id == 1: %}
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{url_for('add_new_post')}}">Create New Post</a>
-        </div>
-        {% endif %}
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      {% for post in all_posts %}
+      <div class="post-preview">
+        <a href="{{ url_for('show_post', post_id=post.id) }}">
+          <h2 class="post-title">
+            {{post.title}}
+          </h2>
+          <h3 class="post-subtitle">
+            {{post.subtitle}}
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          {{post.author.name}}
+          on {{post.date}}
+          {% if current_user.id == 1: %}
+          <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+          {% endif %}
+        </p>
       </div>
+      {% endfor %}
+
+
+      <!-- New Post -->
+      {% if current_user.id == 1: %}
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="{{url_for('add_new_post')}}">Create New Post</a>
+      </div>
+      {% endif %}
     </div>
   </div>
-  <hr>
+</div>
+<hr>
 
 {% include "footer.html" %}
