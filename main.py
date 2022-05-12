@@ -157,6 +157,11 @@ def contact():
     return render_template("contact.html", current_user=current_user)
 
 
+@app.route("/playground")
+def test():
+    return render_template("playground.html", current_user=current_user)
+
+
 @app.route("/new-post", methods=["GET", "POST"])
 @admin_only
 def add_new_post():
