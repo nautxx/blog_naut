@@ -40,27 +40,41 @@
       <div class="container-fluid">
           <ul class="nav">
             <li class="nav-item">
-              <a class="c-nav-list__link nav-link" href="{{ url_for('portfolio') }}">Work</a>
+              <a class="c-nav-list__link c-nav-list__link--work" href="{{ url_for('portfolio') }}">
+                <span>Work</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="c-nav-list__link nav-link" href="{{ url_for('about') }}">About</a>
+              <a class="c-nav-list__link c-nav-list__link--info" href="{{ url_for('about') }}">
+                <span>About</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="c-nav-list__link nav-link" href="{{ url_for('get_all_posts') }}">Wip</a>
+              <a class="c-nav-list__link c-nav-list__link--work" href="{{ url_for('get_all_posts') }}">
+                <span>Wip</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="c-nav-list__link nav-link" href="{{ url_for('contact') }}">Contact</a>
+              <a class="c-nav-list__link c-nav-list__link--info" href="{{ url_for('contact') }}">
+                <span>Contact</span>
+              </a>
             </li>
             {% if not current_user.is_authenticated: %}
             <li class="nav-item">
-              <a class="c-nav-list__link nav-link" href="{{ url_for('login') }}">Login</a>
+              <a class="c-nav-list__link" href="{{ url_for('login') }}">
+                <span>Login</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="c-nav-list__link nav-link" href="{{ url_for('register') }}">Register</a>
+              <a class="c-nav-list__link" href="{{ url_for('register') }}">
+                <span>Register</span>
+              </a>
             </li>
             {% else: %}
             <li class="nav-item">
-              <a class="c-nav-list__link nav-link" href="{{ url_for('logout') }}">Log Out</a>
+              <a class="c-nav-list__link" href="{{ url_for('logout') }}">
+                <span>Logout</span>
+              </a>
             </li>
             {% endif %}
           </ul>
