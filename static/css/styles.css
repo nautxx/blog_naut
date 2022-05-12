@@ -266,6 +266,92 @@ a, button, h6, input, li, p {
     margin: 0 auto 4em;
 }
 
+.c-history {
+    width: 90%;
+    max-width: 1600px;
+    margin: 2em auto 0;
+}
+
+.c-gant {
+    width: 100%;
+    padding: 0 3em;
+    max-width: 1600px;
+    margin: 0 auto 4em;
+    border-radius: 15px;
+    background: linear-gradient(180deg,#fefaf6 2.42%,#fdf5ee);
+}
+
+.c-gant-box {
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-gant-box__block {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1;
+    flex-basis: auto;
+}
+
+.c-gant-box__item {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.c-gant__company {
+    font-size: 18px;
+    display: block;
+}
+
+.c-gant__role {
+    display: block;
+}
+
+.c-gant__tenure {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.c-gant__chart {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    padding: 4em 0;
+    row-gap: 1em;
+    grid-template-columns: repeat(1,1fr);
+}
+
+.c-gant__entry {
+    position: relative;
+    border-radius: 20px;
+    padding: 1.5em;
+}
+
+.c-gant__entry--lc {
+    background: #aadcda;
+    color: #090f0f;
+}
+
+.c-gant__entry--rma {
+    background: #d4dbf9;
+    color: #2a335a;
+}
+
+.c-gant__entry--sk {
+    background: #ffeec4;
+    color: #5a4610;
+}
+
+.c-gant__entry--std {
+    background: #dacdff;
+    color: #2c1867;
+}
+
 .c-playground {
     padding: 8em 0 3em;
     max-width: 1200px;
@@ -304,6 +390,14 @@ a, button, h6, input, li, p {
     max-width: 580px;
     padding: 0;
     }
+
+    .c-gant {
+        width: 100%;
+        padding: 0 3em;
+        width: 90%;
+        border-radius: 15px;
+        margin: 0 auto 8em;
+    }
 }
 
 @media (min-width: 992px) {
@@ -325,6 +419,30 @@ a, button, h6, input, li, p {
 
     .c-wip__header, .c-post__header{
         padding: 14em 0 10em;
+    }
+
+    .c-gant__chart {
+        grid-template-columns:repeat(12, 1fr);
+    }
+
+    .c-gant__entry--lc {
+        grid-column: 1/span 4;
+        grid-row:4/4
+    }
+
+    .c-gant__entry--rma {
+        grid-column: 5/span 4;
+        grid-row:3/3
+    }
+
+    .c-gant__entry--sk {
+        grid-column: 9/span 5;
+        grid-row:2/2
+    }
+
+    .c-gant__entry--std {
+        grid-column: 10/span 15;
+        grid-row:1/1
     }
 }
 
