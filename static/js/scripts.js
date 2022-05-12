@@ -26,7 +26,40 @@ const blobs = () => {
   });
 }
 
+const elasticWork = () => {
+
+  $(window).bind("load", function() {
+
+    $(".c-loader").addClass("loaded");
+    anime({
+      targets: '.elastic-in-work',
+      opacity: 1,
+      translateY: [25,0],
+      delay: anime.stagger(200),
+      // easing: 'easeInElastic(1, .1)'
+    });
+  });
+}
+
+const elastic = () => {
+
+  var delayInMilliseconds = 500;
+
+  setTimeout(function() {
+    anime({
+      targets: '.elastic-in',
+      opacity: 1,
+      translateY: [25,0],
+      delay: anime.stagger(200),
+      // easing: 'easeInElastic(1, .1)'
+    });
+}, delayInMilliseconds);
+
+}
+
 $(document).ready(function() {
   lazyLoad();
+  elastic();
+  elasticWork();
   blobs();
 });
