@@ -418,6 +418,11 @@ input[type="submit"]:hover, button[type="submit"]:hover {
     height: 8px;
 }
 
+.c-footer__copyright {
+    text-align: center;
+    padding-bottom: 2em;
+}
+
 .c-wip__header {
     text-align: center;
     overflow: hidden;
@@ -661,6 +666,14 @@ input[type="submit"]:hover, button[type="submit"]:hover {
     opacity: 1;
     animation: a 1s infinite;
     pointer-events: none;
+}
+
+.fas {
+    color: #232320;
+}
+
+.fas:hover {
+    color: #3e3e3b !important;
 }
 
 @media (min-width: 1600px) {
