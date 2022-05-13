@@ -5,20 +5,22 @@
     <header>
         <div class="c-playground">
             <div class="c-playground-col">
-                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxo</div>
-                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxox</div>
-                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxo</div>
-                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxox</div>
-                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxo</div>
-                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxox</div>
-                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxo</div>
-                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxox</div>
-                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxo</div>
-                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxox</div>
-                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxo</div>
-                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxox</div>
-                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxo</div>
-                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
+                <div class="c-playground__wiggle">xoxoxoxoxoxoxoxoxoxoxo</div>
+                <div class="c-playground__wiggle">oxoxoxoxoxoxoxoxoxoxox</div>
             </div>
         </div>
     </header>
@@ -33,21 +35,19 @@
 
     const animation = anime.timeline({
       targets: wavewiggle.listAll,
-      delay: anime.stagger(100, {
+      delay: anime.stagger(250, {
         grid: [wavewiggle.list[0].length, wavewiggle.list.length],
         from: "center"
       }),
       loop: true
     });
     
-    animation
-        .add({
-            scale: 0.5})
-        .add({
-            letterSpacing: "10px"})
-        .add({
-            scale: 1})
-        .add({
-            letterSpacing: "7px"});
+    animation.
+        add({
+            scale: .5}).
+        add({
+            scale: 1.25}).
+        add({
+            scale: 1});
 </script>
 {% include "footer.html" %}
