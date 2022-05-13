@@ -26,21 +26,6 @@ const blobs = () => {
   });
 }
 
-const elasticWork = () => {
-
-  $(window).bind("load", function() {
-
-    $(".c-loader").addClass("loaded");
-    anime({
-      targets: '.elastic-in-work',
-      opacity: 1,
-      translateY: [25,0],
-      delay: anime.stagger(200),
-      // easing: 'easeInElastic(1, .1)'
-    });
-  });
-}
-
 const elastic = () => {
 
   var delayInMilliseconds = 500;
@@ -49,8 +34,8 @@ const elastic = () => {
     anime({
       targets: '.elastic-in',
       opacity: 1,
-      translateY: [25,0],
-      delay: anime.stagger(200),
+      translateY: [50,0],
+      delay: anime.stagger(100),
       // easing: 'easeInElastic(1, .1)'
     });
 }, delayInMilliseconds);
@@ -60,6 +45,5 @@ const elastic = () => {
 $(document).ready(function() {
   lazyLoad();
   elastic();
-  elasticWork();
   blobs();
 });
