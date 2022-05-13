@@ -10,7 +10,7 @@
 
   <title>Jason Barnachea | Engineer | Work</title>
 
-  <meta name="Keywords" content="Jason Barnachea engineer software app digital design creative portfolio blog Santa Monica California">
+  <meta name="Keywords" content="Jason Barnachea naut engineer software app digital design creative portfolio blog Santa Monica California">
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -34,7 +34,7 @@
 
 <body>
 
-  <!-- Navigation -->
+  <!-- Top Navigation Bar -->
   <header class ="s-nav">
     <nav class="navbar py-3">
       <div class="container-fluid">
@@ -59,6 +59,8 @@
                 <span>Contact</span>
               </a>
             </li>
+          </ul>
+          <ul class="nav">
             {% if not current_user.is_authenticated: %}
             <li class="nav-item">
               <a class="c-nav-list__link" href="{{ url_for('login') }}">
