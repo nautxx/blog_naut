@@ -34,9 +34,10 @@ const elastic = () => {
     anime({
       targets: '.elastic-in',
       opacity: 1,
-      translateY: [50,0],
-      delay: anime.stagger(100),
-      // easing: 'easeInElastic(1, .1)'
+      translateY: -7,
+      // direction: 'alternate',
+      easing: 'spring(1, 96, 5, 100)',
+      delay: anime.stagger(61)
     });
 }, delayInMilliseconds);
 
