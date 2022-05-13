@@ -2,24 +2,24 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block head %}
-  {% include "header.html" %}
+    {% include "header.html" %}
 {% endblock %}
 
 {% block content %}
-  <!-- Page Header -->
-  <section>
-    <header class="c-wip__header c-register__header">
-      <div class="c-register__header-text elastic-in" style="opacity: 1; transform: translateY(0px);">
-        <h1 class="c-register__title">Register</h1>
-        <p class="c-register__sub">Start Contributing to the Blog!</p>
-      </div>
-    </header>
-  </section>
+    <!-- Page Header -->
+    <section>
+        <header class="c-wip__header c-register__header">
+            <div class="c-register__header-text elastic-in" style="opacity: 1; transform: translateY(0px);">
+                <h1 class="c-register__title">Register</h1>
+                <p class="c-register__sub">Start Contributing to the Blog!</p>
+            </div>
+        </header>
+    </section>
 
-  <section>
-    <div class="c-register__content">
-      {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-    </div>
-  </section>
-  {% include "footer.html" %}
+    <section>
+        <div class="c-register__content">
+            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+        </div>
+    </section>
+    {% include "footer.html" %}
 {% endblock %}

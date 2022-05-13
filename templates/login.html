@@ -2,32 +2,41 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block head %}
-  {% include "header.html" %}
+    {% include "header.html" %}
 {% endblock %}
 
 {% block content %}
-  <!-- Page Header -->
-  <section>
-    <header class="c-wip__header c-register__header">
-      <div class="c-register__header-text elastic-in" style="opacity: 1; transform: translateY(0px);">
-        <h1 class="c-register__title">Log In</h1>
-        <p class="c-register__sub">Welcome Back!</p>
-      </div>
-    </header>
-  </section>
+    <!-- Page Header -->
+    <section>
+        <header class="c-wip__header c-register__header">
+            <div class="c-register__header-text elastic-in" style="opacity: 1; transform: translateY(0px);">
+                <h1 class="c-register__title">Log In</h1>
+                <p class="c-register__sub">Welcome Back!</p>
+            </div>
+        </header>
+    </section>
 
-  <!-- Content -->
-  <section>
-    <div class="c-post__content">
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-            <p>{{ message }}</p>
-          {% endfor %}
-        {% endif %}
-      {% endwith %}
-        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-    </div>
-  </section>
-  {% include "footer.html" %}
+    <!-- Content -->
+    <section>
+        <div class="c-register__content">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="c-register__button">
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+                <a href="#">Forgot password?</a>
+            </div>
+        </div>
+        <div class="c-register__content-text">
+            <p>
+                No account yet and getting fomo?<br>
+                You should definitely <a href="{{ url_for('register') }}" class="c-footer__link c-register__link"><span>register</span></a>.
+            </p>
+        </div>
+    </section>
+    {% include "footer.html" %}
 {% endblock %}

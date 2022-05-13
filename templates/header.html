@@ -3,84 +3,83 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="naut">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="naut">
 
-  <title>Jason Barnachea | Engineer | Work</title>
+    <title>Jason Barnachea | Engineer | Work</title>
 
-  <meta name="Keywords" content="Jason Barnachea naut engineer software app digital design creative portfolio blog Santa Monica California">
+    <meta name="Keywords" content="Jason Barnachea naut engineer software app digital design creative portfolio blog Santa Monica California">
 
-  <!-- Bootstrap core CSS -->
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
-  <!-- Custom fonts for this template -->
-  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-  <link href="fonts/bogart.ttf" rel="preload" type="font/ttf" as="font" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com" rel="preconnect"> 
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Varela&family=Varela+Round&display=swap" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="{{ url_for('static', filename='css/clean-blog.min.css')}}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='img/favicon-96x96.png') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
+    <!-- Custom fonts for this template -->
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="fonts/bogart.ttf" rel="preload" type="font/ttf" as="font" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com" rel="preconnect"> 
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela&family=Varela+Round&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/clean-blog.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='img/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
 
 </head>
 
 <body>
 
-  <!-- Top Navigation Bar -->
-  <header class ="s-nav">
-    <nav class="navbar py-3">
-      <div class="container-fluid">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="c-nav-list__link c-nav-list__link--work" href="{{ url_for('portfolio') }}">
-                <span>Work</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="c-nav-list__link c-nav-list__link--info" href="{{ url_for('about') }}">
-                <span>About</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="c-nav-list__link c-nav-list__link--work" href="{{ url_for('get_all_posts') }}">
-                <span>Wip</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="c-nav-list__link c-nav-list__link--info" href="{{ url_for('contact') }}">
-                <span>Contact</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav">
-            {% if not current_user.is_authenticated: %}
-            <li class="nav-item">
-              <a class="c-nav-list__link" href="{{ url_for('login') }}">
-                <span>Login</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="c-nav-list__link" href="{{ url_for('register') }}">
-                <span>Register</span>
-              </a>
-            </li>
-            {% else: %}
-            <li class="nav-item">
-              <a class="c-nav-list__link" href="{{ url_for('logout') }}">
-                <span>Logout</span>
-              </a>
-            </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+    <!-- Top Navigation Bar -->
+    <header class ="s-nav">
+        <nav class="navbar py-3">
+            <div class="container-fluid">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="c-nav-list__link c-nav-list__link--work" href="{{ url_for('portfolio') }}">
+                            <span>Work</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="c-nav-list__link c-nav-list__link--info" href="{{ url_for('about') }}">
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="c-nav-list__link c-nav-list__link--work" href="{{ url_for('get_all_posts') }}">
+                            <span>Wip</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="c-nav-list__link c-nav-list__link--info" href="{{ url_for('contact') }}">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    </ul>
+                    <ul class="nav">
+                    {% if not current_user.is_authenticated: %}
+                        <li class="nav-item">
+                            <a class="c-nav-list__link" href="{{ url_for('login') }}">
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="c-nav-list__link" href="{{ url_for('register') }}">
+                                <span>Register</span>
+                            </a>
+                        </li>
+                    {% else: %}
+                        <li class="nav-item">
+                            <a class="c-nav-list__link" href="{{ url_for('logout') }}">
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
