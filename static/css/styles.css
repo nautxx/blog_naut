@@ -35,7 +35,12 @@ a:active, a:hover {
 
 a:hover {
     text-decoration: none;
-    color: black;
+    color: #1f1f1a;
+}
+
+a h1:hover {
+    transform: translateX(10px) scale(1.05);
+    transition: all .4s ease-in-out; 
 }
 
 img {
@@ -78,8 +83,8 @@ input[type="submit"], button[type="submit"] {
 }
 
 input[type="submit"]:hover, button[type="submit"]:hover {
-    background-color: #3e3e3b;
-    border-color: none;
+    background-color: #3e3e3b !important; 
+    border-color: none !important;
     transition: border-color 0.2s ease;
 }
 
@@ -126,7 +131,7 @@ input[type="submit"]:hover, button[type="submit"]:hover {
     position: relative;
 }
 
-.c-nav-list__link--info span::before, .c-nav-list__link--work span::before, .c-nav-list__link--login {
+.c-nav-list__link--info span::before, .c-nav-list__link--work span::before, .c-nav-list__link--login::before {
     z-index: 5;
     content: "";
     width: 100%;
@@ -330,10 +335,25 @@ input[type="submit"]:hover, button[type="submit"]:hover {
 
 }
 
-.c-post__content, .c-register__content {
+.c-wip__content, .c-post__content, .c-register__content {
     padding: 4em 0 4em;
     max-width: 790px;
     margin: 0 auto;
+}
+
+.c-wip__content_title, .c-wip__content_sub {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.c-wip__content-detail {
+    font-size: 14px;
+}
+
+.c-register__content-text {
+    max-width: 790px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .c-footer, .c-footer__content {
@@ -365,6 +385,37 @@ input[type="submit"]:hover, button[type="submit"]:hover {
     position: relative;
     z-index: 100;
     text-align: center;
+}
+
+.c-footer__link {
+    color: #656270;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    position: relative;
+    z-index: 10;
+}
+
+.c-footer__link::before, .c-register__link::before {
+    z-index: 5;
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 2px;
+    height: 3px;
+    left: 0;
+    display: block;
+    background: #0ad6c5;
+    transition: all .2s ease-in-out;
+    transform: rotate(-2deg);
+}
+
+.c-register__link::before {
+    transform: rotate(1deg);
+}
+
+
+.c-footer__link:hover::before, .c-register__link:hover::before {
+    height: 8px;
 }
 
 .c-wip__header {
