@@ -2,37 +2,28 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block head %}
-{% include "header.html" %}
+    {% include "header.html" %}
 {% endblock %}
-{% block content %}
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/edit-bg.jpg')}}')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            {% if is_edit: %}
-            <h1>Edit Post</h1>
-            {% else: %}
-            <h1>New Post</h1>
-            {% endif %}
-            <span class="subheading">You're going to make a great blog post!</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+{% block content %}
+    <!-- Page Header -->
+    <header class="c-wip__header c-post__header">
+        <div class="c-post__header-text elastic-in" style="opacity: 1; transform: translateY(0px);">
+        {% if is_edit: %}
+            <h1 class="c-post__title">Edit Post</h1>
+        {% else: %}
+            <h1 class="c-post__title">New Post</h1>
+        {% endif %}
+            <p class="c-post__sub">You're going to make a great blog post!</p>
+        </div>
+    </header>
+
+    <!-- Post Contents -->
+    <div class="c-post__content">
         {{ ckeditor.load() }}
         {{ ckeditor.config(name='body') }}
         {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-      </div>
     </div>
-  </div>
 
-{% include "footer.html" %}
+    {% include "footer.html" %}
 {% endblock %}
