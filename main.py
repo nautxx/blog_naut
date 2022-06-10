@@ -10,6 +10,7 @@ from sqlalchemy.orm import relationship
 from functools import wraps
 from flask_gravatar import Gravatar
 from datetime import date, datetime as dt
+from dotenv import load_dotenv
 import os
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from tables import User, BlogPost, Comment
