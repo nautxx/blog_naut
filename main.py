@@ -16,7 +16,7 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from tables import User, BlogPost, Comment
 
 
-#Initialize
+# Initialize
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
 ckeditor = CKEditor(app)
@@ -32,7 +32,7 @@ gravatar = Gravatar(
     base_url=None
 )
 
-#Connect to database
+# Connect to database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -218,4 +218,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=9001, debug=True)
+    app.run(host='0.0.0.0', port=9001)
