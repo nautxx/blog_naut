@@ -31,7 +31,7 @@ gravatar = Gravatar(
 )
 
 # Connect to database
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db") # use sqlite if developing locally, use PostgreSQL on heroku
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///blog.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
