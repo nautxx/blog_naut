@@ -14,6 +14,7 @@ import os
 
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 
+
 # Initialize
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
